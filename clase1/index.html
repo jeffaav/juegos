@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Holi</title>
+    </head>
+    <body>
+            <div id="game"></div>  
+            <script type="text/javascript" src="/phaser.min.js"></script>
+            <script type="text/javascript">
+                var game = new Phaser.Game(800, 600,Phaser.AUTO,'game',{
+                    preload: preload,
+                    create: create,
+                    update: update
+                });
+                var sprite;
+                
+                function preload(){
+                    game.load.image('fondo','/assets/rexona.jpg');
+                }
+                
+                function create(){
+                    sprite = game.add.sprite(0,0,'fondo');
+                    sprite.anchor.setTo(0.5);
+                    
+                    sprite.x = game.world.centerX;
+                    sprite.y = game.world.centerY;
+                    
+                    sprite.outOfBoundsKill = true;
+                    sprite.checkWorldBounds = true;
+                    sprite.events.onOutOfBounds.add(chequearMuerte);
+                    sprite.events.onInputDown.add(click);
+                    sprite.inputEnabled = true;
+                }
+                
+                function chequearMuerte(sprite) {
+                    console.log(sprite);
+                }
+                
+                function click(sprite) {
+                    console.info(sprite);
+                }
+                
+                function update(){
+                    //sprite.x += 15;
+                }
+            </script>
+    </body>
+</html>
