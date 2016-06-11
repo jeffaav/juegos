@@ -1,2 +1,2 @@
 # juegos
-Fundamentos de la teoria de videojuegos
+Curso de fundamentos de la teoría de juegos
